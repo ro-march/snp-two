@@ -1,0 +1,49 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0 25px;
+	padding-top: 30px;
+}
+
+.document {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 200px;
+	padding: 10px 20px;
+	background-color: #e9e9e9;
+	font-family: 'VT323', monospace;
+	font-size: 18px;
+
+	*:not(.company) {
+		text-transform: uppercase;
+	}
+}
+
+.block-summ {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.line {
+	width: 100%;
+	height: 1px;
+	margin: 10px 0;
+	border-top: 2px dashed gray;
+}
+
+.left {
+	align-self: flex-start;
+}
+
+.right {
+	align-self: flex-end;
+}

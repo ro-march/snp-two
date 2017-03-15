@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>App</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="public/reset.css">
+	<link rel="stylesheet" type="text/css" href="public/style.css">
+</head>
+<body>
+	<div class="container">
+		<!-- form -->
+		<div>
+			<p><label>Название:</label></p>
+			<input id="check-name" type="text" name="name">
+
+			<p><label>Цена:</label></p>
+			<input id="check-cost" type="text" name="cost">
+
+			<p><label>Количество:</label></p>
+			<input id="check-count" type="number" name="count">
+
+			<br>
+			<button>Добавить</button>
+			<br><br>
+
+			<p><label>Имя:</label></p>
+			<input id="user-name" type="text" name="username">
+
+			<p><label>E-Mail:</label></p>
+			<input id="user-email" type="email" name="email">
+			<br>
+
+			<button>Отправить чек</button>
+		</div>
+
+		<!-- document -->
+		<div class="document">
+			<div class="company left">OOO "Барсук и Co"</div>
+			<div class="nm">нм 00001595</div>
+			<div class="inn">инн: 007820305689</div>
+			<div class="date">15.03.2017 10:30</div>
+			<div class="number">n 2076/0214</div>
+			<div class="line"></div>
+			<div id="root"></div>
+			<div class="line"></div>
+			<div class="block-summ">
+				<div class="text left">итого:</div>
+				<div class="value right">0.0</div>
+			</div>
+			<div class="operator left">кассир/оператор /1</div>
+			<div class="rnm right">*РНМ 000220003045*</div>
+			<div class="ekls right">ЭКЛЗ 05623565435</div>
+			<div class="right">00339976 #004027</div>
+		</div>
+	</div>
+
+	<!-- scripts -->
+	<script src="public/build.js"></script>
+</body>
+</html>
