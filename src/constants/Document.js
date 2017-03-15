@@ -1,0 +1,4 @@
+export const ADD_ELEMENT = 'ADD_ELEMENT'
+export const REMOVE_ELEMENT = 'REMOVE_ELEMENT'
+export const SEND_DOCUMENT = 'SEND_DOCUMENT'
+export const CHANGE_ELEMENT = 'CHANGE_ELEMENT'
