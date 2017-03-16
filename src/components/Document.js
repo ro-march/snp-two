@@ -5,20 +5,24 @@ import Element from './Element'
 export default class Document extends Component {
 
 	render() {
-
+		 //*** get propts ***//
 		const { elements } = this.props;
-		const listElements = elements.map((element, id) => {
 
+
+		 //*** generate list elements ***//
+		const listElements = elements.map((element, id) => {
+			 //*** if name empty hide element ***//
 			if (element.name.length > 0)
 		 		return <Element key={id} name={element.name} count={element.count} cost={element.cost} />
-		}
-		);
+		});
 
+
+		 //*** calculate sum all products ***//
 		let sum = 0;
 		for (let i = 0; i < elements.length; i++)
 			sum += elements[i].cost * elements[i].count;
 
-
+		
 		return (
 			<div className="document">
 				<div className="left">OOO "Барсук и Co"</div>

@@ -1,3 +1,5 @@
+
+
 html, body, #root {
 	width: 100%;
 	height: 100%;
@@ -6,16 +8,16 @@ html, body, #root {
 .container {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
-	padding: 0 25px;
+	justify-content: center;
 	padding-top: 30px;
 }
 
 .document {
 	display: flex;
 	flex-direction: column;
+	margin-left: 50px;
 	align-items: center;
-	width: 200px;
+	width: 250px;
 	padding: 10px 20px;
 	background-color: #e9e9e9;
 	font-family: 'Open Sans', sans-serif;
@@ -27,6 +29,11 @@ html, body, #root {
 	display: flex;
 	width: 100%;
 	flex-direction: column;
+
+	.name {
+		width: 100%;
+		word-wrap: break-word;
+	}
 }
 
 .form {

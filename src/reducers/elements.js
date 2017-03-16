@@ -1,6 +1,5 @@
 import {
 	ADD_ELEMENT,
-	REMOVE_ELEMENT,
 	CHANGE_ELEMENT
 } from '../constants/Document'
 
@@ -12,7 +11,7 @@ const initState = [{
 }]
 
 
-export default function element(state = initState, action) {
+export default function elements(state = initState, action) {
 
 	switch( action.type ) {
 

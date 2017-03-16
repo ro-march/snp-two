@@ -2,10 +2,10 @@ import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
 import doucment from './document'
-import element from './element'
+import elements from './elements'
 
 export default combineReducers ({
 	doucment,
-	element,
+	elements,
 	form: formReducer
 })

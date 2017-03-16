@@ -5,14 +5,15 @@ import Document from '../components/Document'
 import Form from '../components/Form'
 import * as userActions from '../actions/UserActions'
 
+
 export class App extends Component {
 	render() {
 		const { ChangeElement, AddElement } = this.props.userActions
-		const { element, document } = this.props
+		const { elements, document } = this.props
 		return (
 			<div className="container">
 				<Form changeElement={ChangeElement} addElement={AddElement}/>
-				<Document elements={element}/>
+				<Document elements={elements}/>
 			</div>
 		);
 	}
@@ -21,7 +22,7 @@ export class App extends Component {
 
 function mapStateToProps (state) {
 	return {
-		element: state.element,
+		elements: state.elements,
 		document: state.document
 	}
 }

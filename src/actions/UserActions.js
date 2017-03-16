@@ -1,11 +1,10 @@
 import {
 	ADD_ELEMENT,
-	REMOVE_ELEMENT,
-	SEND_DOCUMENT,
 	CHANGE_ELEMENT
 } from '../constants/Document'
 
 
+ //*** action add new element ***//
 export function AddElement(name, count, cost) {
 	return (dispatch) =>
 	{
@@ -20,28 +19,8 @@ export function AddElement(name, count, cost) {
 	}
 }
 
-export function RemoveElement(element) {
-	
-	return (dispatch) =>
-	{
-		dispatch({
-			type: REMOVE_ELEMENT,
-			payload: element
-		})
-	}
-}
 
-export function SendDocument(document) {
-	
-	return (dispatch) =>
-	{
-		dispatch({
-			type: SEND_DOCUMENT,
-			payload: document
-		})
-	}
-}
-
+ //*** action change element ***//
 export function ChangeElement(name, count, cost) {
 
 	return (dispatch) =>
