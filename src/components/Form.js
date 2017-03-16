@@ -1,14 +1,23 @@
+import { warn, validate, errors } from '../validators/FormValidate';
 import React, { Component } from 'react';
-import InputField from '../components/InputField'
+import { Field, reduxForm } from 'redux-form';
 
-export default class Form extends Component {
+const inputComponent = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div className="Field">
+      <input {...input} placeholder={label} type={type}/>
+      {touched && ((error && <p className="error">{error}</p>) || (warning && <p className="error">{warning}</p>))}
+  </div>
+);
 
-	constructor() {
-		super();
+class Form extends Component {
+
+	constructor(props) {
+		super(props);
+
 		this.data = {
 			name: '',
 			count: 1,
-			cost: 0.0
+			cost: 0
 		}
 	}
 
@@ -17,25 +26,29 @@ export default class Form extends Component {
 	}
 
 	onAddHandler(e) {
+		if ( errors.name || errors.count || errors.cost ) {
+			this.props.touch('name', 'count', 'cost');
+			return;
+		}
+
 		this.props.addElement(this.data.name, this.data.count, this.data.cost);
-		this.data.name = '';
-		this.data.cost = 0;
-		this.data.count = 1;
 	}
 
-	onSendHandler(e) {
+	onSendDocument() {
+		if ( errors.username || errors.email ) {
+			this.props.touch('username', 'email');
+			return;
+		}
 	}
 
 	onChangeNameHandler(e) {
 		this.data.name = e.target.value;
 		this.onSendChange();
-
 	}
 
 	onChangeCountHandler(e) {
 		this.data.count = e.target.value
 		this.onSendChange();
-
 	}
 
 	onChangeCostHandler(e) {
@@ -46,27 +59,24 @@ export default class Form extends Component {
 
 	render() {
 		return (
-			<form className="form">
-				<label>Название:</label>
-				<input type="text" value={this.data.name} onChange={::this.onChangeNameHandler} />
+			<div className="form">
 
-				<InputField name="name" label="Hi" placeholder="lolol" />
+				<Field name="name" component={inputComponent} onChange={::this.onChangeNameHandler} type="name" label="Товар"/>
+				<Field name="count" component={inputComponent} onChange={::this.onChangeCountHandler} type="count" label="Количество"/>
+				<Field name="cost" component={inputComponent} onChange={::this.onChangeCostHandler} type="cost" label="Стоимость"/>
 
-				<label>Цена:</label>
-				<input type="text" value={this.data.cost} pattern={'[0-9]{3}'} min="0" onChange={::this.onChangeCostHandler} />
-
-				<label>Количество:</label>
-				<input type="number" name="count" pattern="[0-9]{3}" value={this.data.count} min="1" onChange={::this.onChangeCountHandler} />
 				<button onClick={::this.onAddHandler}>Добавить</button>
 
-
-				<label>Имя:</label>
-				<input type="text" name="username"/>
-
-				<label>E-Mail:</label>
-				<input type="email" name="email"/>
-				<button>Отправить чек</button>
-			</form>
-		);
+				<Field name="username" component={inputComponent} type="text" label="Ваше имя"/>
+				<Field name="email" component={inputComponent} type="email" label="E-mail"/>
+				<button onClick={::this.onSendDocument}>Отправить</button>
+			</div>
+		);    
 	}
 }
+
+export default reduxForm({
+	form: 'form',
+	validate,
+	warn
+})(Form)

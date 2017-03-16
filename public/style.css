@@ -57,14 +57,40 @@ html, body, #root {
 	        flex-direction: column;
 }
 
-label {
+
+
+.Field {
 	margin-top: 20px;
-	margin-bottom: 5px;
 }
 
-input {
-	height: 20px;
+
+
+.Field *:focus {
+	outline: none;
+}
+
+
+
+.Field input {
+	height: 30px;
 	min-width: 200px;
+	padding-left: 10px;
+	border: none;
+	border-bottom: 1px solid gray;
+	color: gray
+}
+
+
+
+.Field input:focus {
+	border-bottom: 1px solid plum;
+}
+
+.error {
+	font-size: 10px;
+	color: red;
+	margin-top: 2px;
+	text-transform: uppercase;
 }
 
 button {
